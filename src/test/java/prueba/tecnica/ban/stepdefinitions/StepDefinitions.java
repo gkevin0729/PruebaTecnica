@@ -34,8 +34,8 @@ public class StepDefinitions {
 
     }
 
-    @Then("^he check the document (.*)")
-    public void he_check_the_document_Contrato_Único_de_Productos_y_Servicios_Bancarios_pdf(String doc){
+    @Then("^the user check the document (.*)")
+    public void theUserCheckTheDocumentContratoÚnicoDeProductosYServiciosBancariosOctPdf(String doc){
         theActorInTheSpotlight().should(seeThat(ReviewPagePDF.document(doc)));
 
 

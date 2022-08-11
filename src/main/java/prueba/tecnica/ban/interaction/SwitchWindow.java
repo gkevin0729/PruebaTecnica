@@ -14,17 +14,17 @@ public class SwitchWindow implements Interaction {
     @Override
     public <T extends Actor> void performAs(T actor) {
 
-        StringBuilder url = new StringBuilder();
-        String tag = BrowseTheWeb.as(actor).getDriver().getWindowHandle();
+        StringBuilder parentUrl = new StringBuilder();
+        String page2 = BrowseTheWeb.as(actor).getDriver().getWindowHandle();
         Set<String> handles = BrowseTheWeb.as(actor).getDriver().getWindowHandles();
 
-        for (String parentPage : handles) {
-            if (!parentPage.equalsIgnoreCase(tag)) {
-                BrowseTheWeb.as(actor).getDriver().switchTo().window(parentPage);
-                url.append(BrowseTheWeb.as(actor).getDriver().getCurrentUrl());
+        for (String page1 : handles) {
+            if (!page1.equalsIgnoreCase(page2)) {
+                BrowseTheWeb.as(actor).getDriver().switchTo().window(page1);
+                parentUrl.append(BrowseTheWeb.as(actor).getDriver().getCurrentUrl());
 
             }
         }
-        actor.remember("PDF", url.append(BrowseTheWeb.as(actor).getDriver().getCurrentUrl()));
+        actor.remember("urlPDF", parentUrl.append(BrowseTheWeb.as(actor).getDriver().getCurrentUrl()));
     }
 }

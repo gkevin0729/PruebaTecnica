@@ -5,7 +5,7 @@ import net.serenitybdd.screenplay.Performable;
 import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.Tasks;
 import net.serenitybdd.screenplay.actions.Open;
-import prueba.tecnica.ban.userinterface.BanistmoPage;
+
 
 public class OpenUp implements Task {
     private prueba.tecnica.ban.userinterface.BanistmoPage BanistmoPage;

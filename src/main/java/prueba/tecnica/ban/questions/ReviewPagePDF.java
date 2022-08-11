@@ -7,8 +7,8 @@ import prueba.tecnica.ban.interaction.SwitchWindow;
 public class ReviewPagePDF implements Question<Boolean> {
     private String doc;
 
-    public ReviewPagePDF(String document) {
-        this.doc= document;
+    public ReviewPagePDF(String documented) {
+        this.doc = documented;
     }
 
     public static ReviewPagePDF document(String doc) {
@@ -17,14 +17,18 @@ public class ReviewPagePDF implements Question<Boolean> {
 
     @Override
     public Boolean answeredBy(Actor actor) {
+
+
         String link;
-        boolean resp;
-
         actor.attemptsTo(SwitchWindow.to());
-        link = actor.recall("urlPDF").toString().replaceAll("\\+", " ");
+        link = actor.recall("urlPDF").toString().replaceFirst("-"," ").replaceFirst("\\+","-")
+                .replace("%","/")
+                .replace("233.","233/")
+                .replaceAll("\\+"," ");
+
 
         System.out.println(link);
-        System.out.println(link);
+        System.out.println(doc);
 
         return link.contains(doc);
     }
